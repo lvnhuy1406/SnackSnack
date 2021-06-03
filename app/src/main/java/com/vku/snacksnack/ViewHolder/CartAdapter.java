@@ -2,6 +2,7 @@ package com.vku.snacksnack.ViewHolder;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
+import com.vku.snacksnack.Common.Common;
 import com.vku.snacksnack.Interface.ItemClickListener;
 import com.vku.snacksnack.Model.Order;
 import com.vku.snacksnack.R;
@@ -23,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnCreateContextMenuListener {
 
     public TextView txt_cart_name, txt_price;
     public ImageView img_cart_count;
@@ -41,11 +43,19 @@ class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickList
         txt_price = (TextView)itemView.findViewById(R.id.cart_item_price);
 
         img_cart_count = (ImageView)itemView.findViewById(R.id.cart_item_count);
+
+        itemView.setOnCreateContextMenuListener(this);
     }
 
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        contextMenu.setHeaderTitle("Select your action");
+        contextMenu.add(0, 0, getAdapterPosition(), Common.DELETE);
     }
 }
 

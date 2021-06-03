@@ -14,4 +14,6 @@ public class Common {
             return "Đã nhận";
         }
     }
+
+    public static final String DELETE = "Delete";
 }
