@@ -84,7 +84,6 @@ public class FoodList extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i1, int i2, int i3) {
-                // When user type their text, we will change suggest list
 
                 List<String> suggest = new ArrayList<>();
                 for (String search:suggestList) {
@@ -105,7 +104,7 @@ public class FoodList extends AppCompatActivity {
         materialSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
-                // When Search ABar is close
+                // When Search Bar is close
                 // Restore origin adapter
                 if (!enabled) {
                     recycler_food.setAdapter(adapter);
